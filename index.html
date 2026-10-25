@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHIELD 2.0 — Smart Protection Against Spam, Phishing & Digital Threats</title>
+  <meta name="description"
+    content="SHIELD 2.0 — Smart Protection Against Spam, Phishing & Digital Threats. Analyzes suspicious emails, SMS and social messages for phishing and scam warning signs, and teaches you how to stay safe.">
+  <meta property="og:title" content="SHIELD 2.0 — Smart Protection Against Spam, Phishing & Digital Threats">
+  <meta property="og:description" content="Smart Protection Against Spam, Phishing & Digital Threats">
+
+  <!-- Fonts: Space Grotesk for display headings, Inter for body copy, JetBrains Mono for scan/data readouts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ============ SKIP LINK (ACCESSIBILITY) ============ -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="brand" title="SHIELD 2.0 — Smart Protection Against Spam, Phishing & Digital Threats">
+        <span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>
+        <span class="brand-name">SHIELD 2.0</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#detector" class="nav-link">Detector</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#threats" class="nav-link">Threats</a>
+        <a href="#safety-tips" class="nav-link">Safety Tips</a>
+        <a href="#quiz" class="nav-link">Quiz</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#detector" class="btn btn-primary btn-sm nav-cta">
+          <i class="fa-solid fa-magnifying-glass"></i> Analyze Message
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Message threat scanner</p>
+          <h1>Don't trust every message.<br>Check it first.</h1>
+          <p class="hero-sub">
+            SHIELD 2.0 analyzes suspicious emails and messages to help you recognize spam,
+            phishing attempts, scams, and common digital threats — in seconds, right in your browser.
+          </p>
+          <div class="hero-actions">
+            <a href="#detector" class="btn btn-primary">
+              <i class="fa-solid fa-magnifying-glass"></i> Analyze a Message
+            </a>
+            <a href="#how-it-works" class="btn btn-ghost">
+              <i class="fa-solid fa-circle-play"></i> Learn How It Works
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="radar">
+            <div class="radar-ring r1"></div>
+            <div class="radar-ring r2"></div>
+            <div class="radar-ring r3"></div>
+            <div class="radar-sweep"></div>
+            <div class="radar-core"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="radar-blip b1"></div>
+            <div class="radar-blip b2"></div>
+            <div class="radar-blip b3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-strip">
+        <div class="feature-card">
+          <i class="fa-solid fa-binoculars"></i>
+          <h3>Detect suspicious content</h3>
+          <p>Scan message text for the patterns scammers rely on most.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-lightbulb"></i>
+          <h3>Understand warning signs</h3>
+          <p>See exactly which phrases triggered the score, and why they matter.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-user-shield"></i>
+          <h3>Learn how to stay safe</h3>
+          <p>Get clear next steps, plus a growing library of real scam patterns.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DETECTOR ============ -->
+    <section class="section" id="detector">
+      <div class="section-head">
+        <h2>Spam &amp; Phishing Detector</h2>
+        <p>Paste a message below and SHIELD 2.0 will scan it for common scam indicators.</p>
+      </div>
+
+      <div class="detector-panel">
+        <div class="scan-window">
+
+          <div class="scan-titlebar">
+            <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+            <span class="scan-titlebar-label">message-scan.input</span>
+          </div>
+
+          <form id="detectorForm" class="scan-body" novalidate>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="msgType">Message type</label>
+                <select id="msgType" name="msgType">
+                  <option value="Email">Email</option>
+                  <option value="SMS">SMS</option>
+                  <option value="Social Media">Social Media</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="msgSender">Sender <span class="optional">(optional)</span></label>
+                <input type="text" id="msgSender" name="msgSender" placeholder="e.g. security@yourbank-alerts.com">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="msgText">Message content</label>
+              <textarea id="msgText" name="msgText" rows="7"
+                placeholder="Paste the suspicious email, SMS or message here…" required></textarea>
+              <p class="field-error" id="msgTextError" hidden>Please paste a message to analyze.</p>
+            </div>
+
+            <div class="field">
+              <label for="msgUrl">Link included in message <span class="optional">(optional)</span></label>
+              <input type="text" id="msgUrl" name="msgUrl" placeholder="e.g. http://secure-verify-account.xyz/login">
+              <p class="field-hint"><i class="fa-solid fa-circle-info"></i> Shown for analysis only — SHIELD 2.0 never
+                opens or follows links.</p>
+            </div>
+
+            <div class="sample-row">
+              <span class="sample-label">Try a sample:</span>
+              <button type="button" class="chip" data-sample="prize">Prize Scam</button>
+              <button type="button" class="chip" data-sample="bank">Bank Phishing</button>
+              <button type="button" class="chip" data-sample="job">Fake Job</button>
+              <button type="button" class="chip" data-sample="delivery">Fake Delivery</button>
+              <button type="button" class="chip" data-sample="normal">Normal Message</button>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" id="analyzeBtn">
+              <i class="fa-solid fa-magnifying-glass"></i> Analyze Message
+            </button>
+          </form>
+
+          <div class="scan-loading" id="scanLoading" hidden>
+            <div class="scan-loading-bar"><span></span></div>
+            <p><i class="fa-solid fa-satellite-dish"></i> Scanning message for warning signs…</p>
+          </div>
+        </div>
+
+        <!-- ============ RESULTS ============ -->
+        <div class="results" id="results" hidden>
+
+          <div class="result-summary">
+            <div class="score-gauge">
+              <svg viewBox="0 0 160 160" class="gauge-svg">
+                <circle cx="80" cy="80" r="70" class="gauge-track"></circle>
+                <circle cx="80" cy="80" r="70" class="gauge-fill" id="gaugeFill"></circle>
+              </svg>
+              <div class="gauge-center">
+                <span class="gauge-score" id="gaugeScore">0</span>
+                <span class="gauge-max">/ 100</span>
+              </div>
+            </div>
+
+            <div class="result-meta">
+              <span class="risk-badge" id="riskBadge">
+                <i class="fa-solid fa-circle" id="riskBadgeIcon"></i>
+                <span id="riskBadgeText">LOW RISK</span>
+              </span>
+              <h3 class="result-category" id="resultCategory">Category</h3>
+              <p class="result-scanned-meta">
+                <i class="fa-regular fa-clock"></i> <span id="resultTimestamp">—</span>
+                &nbsp;·&nbsp;
+                <i class="fa-regular fa-envelope"></i> <span id="resultType">—</span>
+              </p>
+              <p class="disclaimer-inline">
+                <i class="fa-solid fa-circle-info"></i>
+                This score is an educational indicator, not proof a message is safe or malicious.
+              </p>
+            </div>
+          </div>
+
+          <div class="result-block">
+            <h4>Detected indicators</h4>
+            <div class="indicator-grid" id="indicatorGrid"></div>
+          </div>
+
+          <div class="result-block">
+            <h4>Message with warning signs highlighted</h4>
+            <div class="highlighted-message" id="highlightedMessage"></div>
+          </div>
+
+          <div class="result-block">
+            <h4>What should I do?</h4>
+            <div class="recommend-columns">
+              <div>
+                <p class="recommend-subhead">Priority actions for this message</p>
+                <ul class="recommend-list priority" id="priorityRecommendations"></ul>
+              </div>
+              <div>
+                <p class="recommend-subhead">General safety checklist</p>
+                <ul class="recommend-list">
+                  <li>Do not click suspicious links.</li>
+                  <li>Never share OTPs, passwords or banking credentials.</li>
+                  <li>Do not send money because of an unexpected message.</li>
+                  <li>Verify the sender using an official website, app or contact number.</li>
+                  <li>Block or report suspicious senders.</li>
+                  <li>Delete the message if it isn't needed.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ ANALYSIS HISTORY ============ -->
+        <div class="history-block" id="history">
+          <div class="history-head">
+            <h4><i class="fa-solid fa-clock-rotate-left"></i> Recent Analyses</h4>
+            <button class="btn btn-ghost btn-sm" id="clearHistoryBtn">
+              <i class="fa-solid fa-trash"></i> Clear History
+            </button>
+          </div>
+          <p class="history-note">Only the date, score, risk level and category are stored on this device — never the
+            full message.</p>
+          <div id="historyList" class="history-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how-it-works">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>One local, rule-based engine — four steps, fully explainable.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <i class="fa-solid fa-paste"></i>
+          <h3>Paste</h3>
+          <p>Paste a suspicious email, text or social message into the detector.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h3>Analyze</h3>
+          <p>SHIELD 2.0 checks the wording, structure and any link for known scam patterns.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <i class="fa-solid fa-chart-simple"></i>
+          <h3>Understand</h3>
+          <p>A risk score and plain-language explanation show exactly what was found.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>Protect</h3>
+          <p>Follow tailored recommendations to respond safely.</p>
+        </div>
+      </div>
+
+      <div class="architecture-line">
+        <span>User Message</span><i class="fa-solid fa-arrow-right"></i>
+        <span>Analyzer</span><i class="fa-solid fa-arrow-right"></i>
+        <span>Risk Score</span><i class="fa-solid fa-arrow-right"></i>
+        <span>Indicators</span><i class="fa-solid fa-arrow-right"></i>
+        <span>Explanation</span><i class="fa-solid fa-arrow-right"></i>
+        <span>Safety Advice</span>
+      </div>
+    </section>
+
+    <!-- ============ THREAT LIBRARY ============ -->
+    <section class="section" id="threats">
+      <div class="section-head">
+        <h2>Threat library</h2>
+        <p>The most common message-based scams, and how to recognize each one.</p>
+      </div>
+
+      <div class="threat-grid" id="threatGrid"></div>
+    </section>
+
+    <!-- ============ SAFETY TIPS ============ -->
+    <section class="section" id="safety-tips">
+      <div class="section-head">
+        <h2>Safety tips</h2>
+        <p>Habits that stop most scams before they start.</p>
+      </div>
+
+      <div class="tips-grid" id="tipsGrid"></div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section class="section" id="quiz">
+      <div class="section-head">
+        <h2>Cyber safety quiz</h2>
+        <p>Eight scenarios. Test your instincts, then check the explanation.</p>
+      </div>
+
+      <div class="quiz-panel">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar"><span id="quizProgressFill"></span></div>
+          <span class="quiz-progress-label" id="quizProgressLabel">Question 1 of 8</span>
+        </div>
+
+        <div id="quizQuestionView">
+          <h3 class="quiz-question" id="quizQuestion"></h3>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-feedback" id="quizFeedback" hidden>
+            <p class="quiz-feedback-verdict" id="quizVerdict"></p>
+            <p id="quizExplanation"></p>
+            <button class="btn btn-primary btn-sm" id="quizNextBtn">Next Question</button>
+          </div>
+        </div>
+
+        <div id="quizResultView" hidden>
+          <div class="quiz-result">
+            <i class="fa-solid fa-award"></i>
+            <h3 id="quizResultTitle">Result</h3>
+            <p class="quiz-result-score" id="quizResultScore">0 / 8</p>
+            <p id="quizResultMessage"></p>
+            <button class="btn btn-primary" id="quizRetakeBtn"><i class="fa-solid fa-rotate-right"></i> Retake
+              Quiz</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section section-narrow" id="about">
+      <div class="section-head">
+        <h2>About this project</h2>
+      </div>
+      <p class="about-text">
+        SHIELD 2.0 is an academic AAD (AI-Assisted Development) project that combines cybersecurity
+        awareness with practical web development. It pairs a local, pattern-based message analyzer
+        with a user-education layer — a threat library, safety tips and an interactive quiz — so the
+        same tool that flags a suspicious message also explains why it looks that way.
+      </p>
+      <p class="about-text">
+        The detector runs entirely in the browser using a deterministic, rule-based scoring engine —
+        it does not use machine learning, and no message content is sent to a server. The analyzer is
+        written as a single modular function so a real AI or backend API could be connected later
+        without changing the rest of the app.
+      </p>
+      <p class="about-text about-tools">
+        Built as a college AAD project with the assistance of AI development tools, including Claude,
+        Antigravity and ChatGPT, used during the design and coding process.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>
+        <div>
+          <p class="footer-name">SHIELD 2.0</p>
+          <p class="footer-tagline">Smart Protection Against Spam, Phishing & Digital Threats</p>
+        </div>
+      </div>
+
+      <nav class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#detector">Detector</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#threats">Threats</a>
+        <a href="#safety-tips">Safety Tips</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+
+    <p class="footer-disclaimer">
+      SHIELD 2.0 is an educational awareness tool. Its analysis is based on message characteristics
+      and should not be treated as definitive proof that a message is safe or malicious. When in doubt,
+      verify information through an official channel.
+    </p>
+
+    <p class="footer-copy">© 2026 SHIELD 2.0 — Academic Cybersecurity Awareness Project</p>
+  </footer>
+
+  <script src="js/analyzer.js" defer></script>
+  <script src="js/history.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+
+</html>
